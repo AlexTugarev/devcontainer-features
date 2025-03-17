@@ -1,0 +1,13 @@
+{
+    "name": "conda:1",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    "features": {
+        "ghcr.io/devcontainers/features/conda:1": {}
+    },
+    "runArgs": [
+        "--privileged",
+        "--security-opt=seccomp=unconfined",
+        "--network=host"
+    ],
+    "containerUser": "root"
+}

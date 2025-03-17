@@ -19,11 +19,18 @@ while IFS= read -r line || [ -n "$line" ]; do
     # Extract the feature name (last part after /)
     feature_folder=$(echo "$line" | awk -F'/' '{print $NF}' | tr -d '\r')
     
+    # Check if this feature has already been processed
+    test_dir="feature_tests/$feature_folder"
+    if [ -d "$test_dir" ]; then
+        echo "Skipping $feature_folder - already processed"
+        echo "----------------------------------------"
+        continue
+    fi
+    
     echo "Processing feature: $line"
     echo "Creating folder: $feature_folder"
     
     # Create a folder for this feature
-    test_dir="feature_tests/$feature_folder"
     mkdir -p "$test_dir"
     
     # Create devcontainer.json in the folder
@@ -61,4 +68,4 @@ EOF
     echo "----------------------------------------"
 done < "features.txt"
 
-echo "All features processed."
+echo "All features processed." 

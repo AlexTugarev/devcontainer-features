@@ -1,0 +1,13 @@
+{
+    "name": "common-utils:2",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {}
+    },
+    "runArgs": [
+        "--privileged",
+        "--security-opt=seccomp=unconfined",
+        "--network=host"
+    ],
+    "containerUser": "root"
+}
